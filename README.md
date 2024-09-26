@@ -1,69 +1,89 @@
-# Unsupervised-Learning-for-Customer-Segmentation
+# Credit Card Customer Segmentation
 
+## Overview
+This project focuses on segmenting credit card customers into distinct categories based on their spending behavior and financial activities. The analysis uses multiple clustering algorithms, including KMeans, DBScan, GMM (Gaussian Mixture Model), and Spectral Clustering, to identify different customer types. Understanding these segments can help financial institutions tailor their services and marketing strategies.
 
-Algorithm Used: KMeans
+## Clustering Algorithms Used
+- **KMeans**: A widely used clustering algorithm that partitions the data into K distinct clusters based on feature similarity.
+- **DBScan**: A density-based clustering algorithm that identifies clusters of varying shapes and sizes based on the density of data points.
+- **GMM**: A probabilistic model that assumes all data points are generated from a mixture of several Gaussian distributions, suitable for soft clustering.
+- **Spectral Clustering**: Uses the eigenvalues of a similarity matrix to reduce dimensionality before applying a clustering algorithm, effective for complex cluster shapes.
 
-To find the optimal number of clusters(Value of k): Elbow Method
+## Customer Segments
+Based on the analysis, the following customer segments have been identified:
 
+### KMeans Clustering
+1. **Transactors**: 
+   - Paid least amount of interest charges
+   - Careful with their money
+   - Lowest balance and cash advance
+   - Full payment percentage: 24%
 
-Full course on: https://www.coursera.org/projects/machine-learning-for-customer-segmentation
+2. **Revolvers**: 
+   - Use credit card as a loan
+   - Most lucrative sector
+   - Highest balance and cash advance
+   - Low purchase frequency, high cash advance frequency
 
-My certificate: https://www.coursera.org/account/accomplishments/certificate/S42CVPSNE7BY
+3. **VIP/Prime**: 
+   - High credit limit
+   - High percentage of full payment: 39%
 
-## DBSCAN Performance Metrics
+4. **Low Tenure**: 
+   - Low tenure and low balance
 
-| DBSCAN Model | Calinski-Harabasz Index | Davies-Bouldin Index | Silhouette Score |
-|--------------|-------------------------|----------------------|------------------|
-| DBSCAN2 (eps=0.2, min_samples=10)  | 6.898 | 1.393 | -0.4428 |
-| DBSCAN3 (eps=0.2, min_samples=15)  | 12.675 | 1.536 | -0.3662 |
-| DBSCAN4 (eps=0.2, min_samples=20)  | 19.283 | 1.559 | -0.2645 |
-| DBSCAN5 (eps=0.4, min_samples=5)   | 23.289 | 1.553 | -0.2472 |
-| DBSCAN6 (eps=0.4, min_samples=10)  | 22.391 | 1.421 | -0.4039 |
-| DBSCAN7 (eps=0.4, min_samples=15)  | 31.466 | 1.535 | -0.3652 |
-| DBSCAN8 (eps=0.4, min_samples=20)  | 36.508 | 1.554 | -0.3566 |
-| DBSCAN9 (eps=0.6, min_samples=5)   | 34.876 | 1.555 | -0.3504 |
-| DBSCAN10 (eps=0.6, min_samples=10) | 24.445 | 1.398 | -0.4771 |
-| DBSCAN11 (eps=0.6, min_samples=15) | 73.362 | 1.620 | -0.3097 |
-| DBSCAN12 (eps=0.6, min_samples=20) | 119.663 | 1.776 | -0.1580 |
+### GMM Clustering
+1. **Transactors**: Similar profile as KMeans.
+2. **Revolvers**: High balance and cash advances, comparable to KMeans.
+3. **VIP/Prime**: High credit limits and full payments.
+4. **Low Tenure**: New customers with lower balances.
 
+### Spectral Clustering
+1. **Transactors**: Careful spenders, akin to KMeans.
+2. **Revolvers**: Frequent cash advance users, matching the KMeans profile.
+3. **VIP/Prime**: High spending and reliable payment behavior.
+4. **Low Tenure**: Short credit history customers.
 
-## Spectral Clustering Performance Metrics
+### DBScan Clustering
+1. **Transactors**: Responsible credit users with minimal cash advances.
+2. **Revolvers**: High balances and cash advances.
+3. **VIP/Prime**: Elite users with high credit limits.
+4. **Low Tenure**: Customers with shorter histories.
 
-| Spectral Model | Calinski-Harabasz Index | Davies-Bouldin Index | Silhouette Score |
-|----------------|-------------------------|----------------------|------------------|
-| Spectral2 (n_clusters=3, n_neighbors=10)  | 166.039  | 1.990 | -0.1072 |
-| Spectral3 (n_clusters=4, n_neighbors=10)  | 1542.273 | 2.002 |  0.1830 |
-| Spectral4 (n_clusters=5, n_neighbors=10)  | 1265.731 | 1.732 |  0.1590 |
-| Spectral5 (n_clusters=6, n_neighbors=10)  | 986.806  | 1.686 |  0.0183 |
-| Spectral6 (n_clusters=7, n_neighbors=10)  | 855.469  | 1.542 |  0.0260 |
-| Spectral7 (n_clusters=8, n_neighbors=10)  | 675.021  | 1.624 | -0.0487 |
-| Spectral8 (n_clusters=9, n_neighbors=10)  | 593.180  | 1.537 | -0.0477 |
-| Spectral9 (n_clusters=10, n_neighbors=10) | 715.525  | 1.507 | -0.0389 |
-| Spectral10 (n_clusters=2, n_neighbors=5)  | 740.453  | 1.340 | -0.0146 |
-| Spectral11 (n_clusters=3, n_neighbors=5)  | 754.815  | 1.375 |  0.0048 |
-| Spectral12 (n_clusters=4, n_neighbors=5)  | 1469.224 | 2.027 |  0.1736 |
-| Spectral13 (n_clusters=5, n_neighbors=5)  | 769.277  | 1.940 | -0.1508 |
-| Spectral14 (n_clusters=6, n_neighbors=5)  | 832.167  | 1.715 | -0.0970 |
-| Spectral15 (n_clusters=7, n_neighbors=5)  | 692.688  | 1.558 | -0.0942 |
-| Spectral16 (n_clusters=8, n_neighbors=5)  | 672.553  | 1.531 | -0.0749 |
-| Spectral17 (n_clusters=9, n_neighbors=5)  | 626.054  | 1.413 | -0.0654 |
-| Spectral18 (n_clusters=10, n_neighbors=5) | 715.024  | 1.433 | -0.0423 |
-| Spectral3 (n_clusters=4, n_neighbors=10)  | 1542.273 | 1.340 |  0.1830 |
+## Evaluation Metrics
+The performance of the clustering algorithms was evaluated using the following metrics:
+- **Calinski-Harabasz Index**: Higher values indicate better-defined clusters.
+- **Davies-Bouldin Index**: Lower values suggest better separation between clusters.
+- **Silhouette Score**: Ranges from -1 to 1, where values closer to 1 indicate better clustering.
 
-
-## GMM Performance Metrics
-
-| GMM Model | Calinski-Harabasz Index | Davies-Bouldin Index | Silhouette Score |
+### Clustering Results
+| Algorithm | Calinski-Harabasz Index | Davies-Bouldin Index | Silhouette Score |
 |-----------|-------------------------|----------------------|------------------|
-| GMM1 (n_components=2)  | 704.522 | 1.348 | -0.0322 |
-| GMM2 (n_components=3)  | 739.907 | 1.391 | -0.0013 |
-| GMM3 (n_components=4)  | 1247.018 | 2.285 | 0.1855 |
-| GMM4 (n_components=5)  | 907.395 | 2.652 | 0.1124 |
-| GMM5 (n_components=6)  | 841.979 | 2.408 | 0.1021 |
-| GMM6 (n_components=7)  | 699.449 | 2.355 | 0.0767 |
-| GMM7 (n_components=8)  | 552.724 | 3.384 | 0.0452 |
-| GMM8 (n_components=9)  | 503.824 | 2.821 | 0.0290 |
-| GMM9 (n_components=10) | 520.905 | 2.781 | 0.0331 |
-| GMM10 (n_components=11) | 407.872 | 3.326 | 0.0280 |
-| GMM11 (n_components=12) | 381.895 | 3.006 | 0.0111 |
+| KMeans    | 1542.27                 | 1.34                 | 0.18             |
+| GMM       | 1247.02                 | 2.28                 | 0.27             |
+| Spectral  | 1265.73                 | 1.73                 | 0.16             |
+| DBScan    | 980.80                  | 1.52                 | 0.19             |
 
+## Installation
+To run this project, ensure you have the following installed:
+- Python 3.x
+- Required libraries:
+  ```bash
+  pip install pandas numpy scikit-learn matplotlib seaborn
+
+
+### Observations
+- **KMeans** achieved the highest Calinski-Harabasz Index of **1542.27**, indicating well-defined clusters. However, its Davies-Bouldin Index of **1.34** suggests some overlap between clusters, with a moderate silhouette score of **0.18** indicating that some points are not well matched to their assigned clusters.
+  
+- **GMM** displayed a Calinski-Harabasz Index of **1247.02**, reflecting good cluster separation. Its Davies-Bouldin Index of **2.28** was the highest among all algorithms, indicating the most overlap. The Silhouette Score of **0.27** shows that many data points are closer to their own clusters compared to others.
+
+- **Spectral Clustering** yielded a Calinski-Harabasz Index of **1265.73**, slightly lower than KMeans but still indicative of good cluster separation. The Davies-Bouldin Index of **1.73** suggests better-defined clusters than GMM, while a Silhouette Score of **0.16** implies that some points are less cohesively grouped.
+
+- **DBScan** had the lowest Calinski-Harabasz Index of **980.80**, indicating less defined clusters. However, its Davies-Bouldin Index of **1.52** suggests relatively better separation than GMM, with a Silhouette Score of **0.19** indicating moderate clustering quality.
+
+Overall, while KMeans and GMM provide solid clustering results, GMM's greater flexibility may allow it to capture more complex patterns in data. Spectral and DBScan offer alternative approaches, particularly useful in detecting clusters of varying shapes and densities.
+
+
+**Full course on:** https://www.coursera.org/projects/machine-learning-for-customer-segmentation
+
+**My certificate:** https://www.coursera.org/account/accomplishments/certificate/S42CVPSNE7BY
